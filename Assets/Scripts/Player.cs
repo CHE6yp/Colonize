@@ -16,7 +16,7 @@ public class Player : NetworkBehaviour {
     public delegate void PlayerEvent();
     public PlayerEvent endTurn;
     public PlayerEvent wealthChange;
-    
+
 
     //public delegate void BankEvent(int buy, int sell);
 
@@ -33,11 +33,11 @@ public class Player : NetworkBehaviour {
 
 
     // Use this for initialization
-    void Start () {
-        
+    void Start() {
+
         mapManager = MapManager.singleton;
-	}
-	
+    }
+
 
     public void StartGame()
     {
@@ -62,7 +62,7 @@ public class Player : NetworkBehaviour {
             return;
 
         Rpc_RollDice(System.Environment.TickCount);
-        
+
     }
 
     [ClientRpc]
@@ -75,6 +75,10 @@ public class Player : NetworkBehaviour {
 
     }
 
+
+
+
+
     public void EndTurn()
     {
         Cmd_EndTurn();
@@ -83,7 +87,7 @@ public class Player : NetworkBehaviour {
     [Command]
     public void Cmd_EndTurn()
     {
-        if (!rolledDice||!turn)
+        if (!rolledDice || !turn)
         {
             Debug.Log("Have to roll dices!");
             return;
@@ -105,6 +109,23 @@ public class Player : NetworkBehaviour {
         if (endTurn != null)
             endTurn();
     }
+
+
+
+    //Robbers
+
+    [Command]
+    public void Cmd_MoveRobbersTo(int hexId)
+    {
+        Rpc_MoveRobbersTo(hexId);
+    }
+
+    [ClientRpc]
+    public void Rpc_MoveRobbersTo(int hexId)
+    {
+        Robber.MoveTo(mapManager.hexes[hexId]);
+    } 
+
 
 
     //Build

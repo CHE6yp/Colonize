@@ -15,12 +15,13 @@ public class Hex : MonoBehaviour {
     public Sprite[] resSprite = new Sprite[0];
     public int resNumber = 0;
     public bool desert;
+    public bool hasRobbers;
 
     
 
     public int number = 0;
     [SerializeField]
-    SpriteRenderer numRend;
+    public SpriteRenderer numRend;
     public Sprite[] numSprite = new Sprite[0];
 
     public List<Town> towns = new List<Town>();
@@ -37,13 +38,15 @@ public class Hex : MonoBehaviour {
 
     public void ScoreHex()
     {
-        foreach(Town t in towns)
-        {
-            if (!t.empty)
+        if (!hasRobbers)
+
+            foreach(Town t in towns)
             {
-                t.ScoreTown(resNumber);
+                if (!t.empty)
+                {
+                    t.ScoreTown(resNumber);
+                }
             }
-        }
     }
 
     public void ClearHexSelection()

@@ -60,6 +60,9 @@ public class PlayerController : MonoBehaviour {
             if (objectHit.GetComponent<Road>() != null)
                 player.Cmd_BuildRoad(objectHit.GetComponent<Road>().id);
 
+            if (objectHit.GetComponent<Hex>() != null)
+                player.Cmd_MoveRobbersTo(objectHit.GetComponent<Hex>().id);
+
         }
     }
 

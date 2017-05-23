@@ -24,11 +24,6 @@ public class MapManager : NetworkBehaviour {
         MatchManager.singleton.newTurn += ClearHexes;
         //RandomMap();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
     void AssignIds()
     {
@@ -71,6 +66,8 @@ public class MapManager : NetworkBehaviour {
                 resList.RemoveAt(tempR);
                 numList.RemoveAt(tempN);
             }
+            else
+                Robber.SetAt(hex);
         }
 
         foreach (Port p in ports)
@@ -83,10 +80,6 @@ public class MapManager : NetworkBehaviour {
         }
     }
 
-    void SetHexNumber(int num)
-    {
-        //сделать проверку на нахождение рядом 6ок и 8ок
-    }
 
     public void ScoreHexes(int num)
     {
