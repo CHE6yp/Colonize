@@ -14,8 +14,8 @@ public class Player : NetworkBehaviour {
     public bool turn;
 
     public enum PlayerPhase { Inactive, RollDices, MoveRobber, TurnPhase}
-    public PlayerPhase playerPhase = PlayerPhase.Inactive;
-
+    public PlayerPhase playerPhase;
+    
 
     public delegate void PlayerEvent();
     public PlayerEvent endTurn;
@@ -131,7 +131,8 @@ public class Player : NetworkBehaviour {
     [ClientRpc]
     public void Rpc_MoveRobbersTo(int hexId)
     {
-        Robber.MoveTo(mapManager.hexes[hexId]);
+        if (playerPhase == PlayerPhase.MoveRobber)
+            Robber.MoveTo(mapManager.hexes[hexId]);
     } 
 
 
