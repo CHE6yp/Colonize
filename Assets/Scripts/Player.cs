@@ -13,6 +13,10 @@ public class Player : NetworkBehaviour {
 
     public bool turn;
 
+    public enum PlayerPhase { Inactive, ThrowDices, MoveRobber }
+    public PlayerPhase playerPhase = PlayerPhase.Inactive;
+
+
     public delegate void PlayerEvent();
     public PlayerEvent endTurn;
     public PlayerEvent wealthChange;
