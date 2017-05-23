@@ -1,0 +1,532 @@
+fileFormatVersion: 2
+guid: 12ea1be76aaa0e04495381798b1d5508
+timeCreated: 1493532571
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: ColonizeMap_0
+    21300002: ColonizeMap_1
+    21300004: ColonizeMap_2
+    21300006: ColonizeMap_3
+    21300008: ColonizeMap_4
+    21300010: ColonizeMap_5
+    21300012: ColonizeMap_6
+    21300014: ColonizeMap_7
+    21300016: ColonizeMap_8
+    21300018: ColonizeMap_9
+    21300020: ColonizeMap_10
+    21300022: ColonizeMap_11
+    21300024: ColonizeMap_12
+    21300026: ColonizeMap_13
+    21300028: ColonizeMap_14
+    21300030: ColonizeMap_15
+    21300032: ColonizeMap_16
+    21300034: ColonizeMap_17
+    21300036: ColonizeMap_18
+    21300038: ColonizeMap_19
+    21300040: ColonizeMap_20
+    21300042: ColonizeMap_21
+    21300044: ColonizeMap_22
+    21300046: ColonizeMap_23
+    21300048: ColonizeMap_24
+    21300050: ColonizeMap_25
+    21300052: ColonizeMap_26
+    21300054: ColonizeMap_27
+    21300056: ColonizeMap_28
+    21300058: ColonizeMap_29
+    21300060: ColonizeMap_30
+    21300062: ColonizeMap_31
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 2
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ColonizeMap_0
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 426
+        width: 70
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ColonizeMap_1
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 446
+        width: 32
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ColonizeMap_2
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 485
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ColonizeMap_3
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 490
+        width: 42
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ColonizeMap_4
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 448
+        width: 45
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ColonizeMap_5
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 450
+        width: 28
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ColonizeMap_6
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 449
+        width: 38
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ColonizeMap_7
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 452
+        width: 40
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ColonizeMap_8
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 460
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ColonizeMap_9
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 465
+        width: 42
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ColonizeMap_10
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 434
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ColonizeMap_11
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 439
+        width: 42
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ColonizeMap_12
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 409
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ColonizeMap_13
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 414
+        width: 42
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ColonizeMap_14
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 389
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ColonizeMap_15
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 389
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ColonizeMap_16
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 389
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ColonizeMap_17
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 389
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ColonizeMap_18
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 389
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ColonizeMap_19
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 389
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ColonizeMap_20
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 389
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ColonizeMap_21
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 389
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ColonizeMap_22
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 389
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ColonizeMap_23
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 389
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ColonizeMap_24
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 385
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ColonizeMap_25
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 390
+        width: 42
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ColonizeMap_26
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 359
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ColonizeMap_27
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 359
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ColonizeMap_28
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 359
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ColonizeMap_29
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 359
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ColonizeMap_30
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 359
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ColonizeMap_31
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 359
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
