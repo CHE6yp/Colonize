@@ -13,7 +13,7 @@ public class Player : NetworkBehaviour {
 
     public bool turn;
 
-    public enum PlayerPhase { Inactive, ThrowDices, MoveRobber }
+    public enum PlayerPhase { Inactive, RollDices, MoveRobber, TurnPhase}
     public PlayerPhase playerPhase = PlayerPhase.Inactive;
 
 
@@ -21,8 +21,6 @@ public class Player : NetworkBehaviour {
     public PlayerEvent endTurn;
     public PlayerEvent wealthChange;
 
-
-    //public delegate void BankEvent(int buy, int sell);
 
     public int winPoints = 0;
 
@@ -56,7 +54,8 @@ public class Player : NetworkBehaviour {
 
     public void RollDice()
     {
-        Cmd_RollDice();
+        if (playerPhase == PlayerPhase.RollDices)
+            Cmd_RollDice();
     }
 
     [Command]
@@ -74,7 +73,11 @@ public class Player : NetworkBehaviour {
     {
         Random.InitState(seed);
 
-        Dices.singleton.Roll();
+        if (Dices.singleton.Roll() == 7)
+            playerPhase = PlayerPhase.MoveRobber;
+        else
+            playerPhase = PlayerPhase.TurnPhase;   
+
         rolledDice = true;
 
     }
@@ -85,7 +88,8 @@ public class Player : NetworkBehaviour {
 
     public void EndTurn()
     {
-        Cmd_EndTurn();
+        if (playerPhase == PlayerPhase.TurnPhase)
+            Cmd_EndTurn();
     }
 
     [Command]

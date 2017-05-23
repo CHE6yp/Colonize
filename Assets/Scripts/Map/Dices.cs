@@ -25,7 +25,7 @@ public class Dices : MonoBehaviour {
 		
 	}
 
-    public void Roll()
+    public int Roll()
     {
         dice1 = Random.Range(1, 7);
         dice2 = Random.Range(1, 7);
@@ -35,6 +35,8 @@ public class Dices : MonoBehaviour {
             MapManager.singleton.ScoreHexes(diceSum);
 
         DrawDice();
+
+        return diceSum;
     }
 
     void DrawDice()

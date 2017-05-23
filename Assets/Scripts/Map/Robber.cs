@@ -34,6 +34,11 @@ public class Robber : MonoBehaviour {
 
         hasToMove = false;
 
+        if (MatchManager.singleton.players[MatchManager.singleton.activePlayerId].rolledDice)
+            MatchManager.singleton.players[MatchManager.singleton.activePlayerId].playerPhase = Player.PlayerPhase.TurnPhase;
+        else
+            MatchManager.singleton.players[MatchManager.singleton.activePlayerId].playerPhase = Player.PlayerPhase.RollDices;
+
         return true;
     }
 
