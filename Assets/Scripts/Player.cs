@@ -271,33 +271,6 @@ public class Player : NetworkBehaviour {
     }
 
 
-    //Buy
-    [Command]
-    public void Cmd_BuyTown()
-    {
-        if (!rolledDice)
-        {
-            Debug.Log("Have to roll dices!");
-            return;
-        }
-
-        if (wealth[0] > 0 && wealth[1] > 0 && wealth[2] > 0 && wealth[3] > 0)
-        {
-            Rpc_BuyTown();
-        }
-    }
-
-    [ClientRpc]
-    public void Rpc_BuyTown()
-    {
-        
-        wealthChange();
-    }
-
-
-
-
-
     //START PHASE-======================-=-=--=-=-=-=-=-
     [Command]
     public void Cmd_BuildTownWithoutAllow(int townId)
@@ -397,7 +370,7 @@ public class Player : NetworkBehaviour {
         {
             
             Bank.singleton.localPlayer = this;
-            MatchUI.singleton.localPlayer = this;
+            MatchUI.localPlayer = this;
             Log.localPlayer = this;
             Trading.localPlayer = this;
 
@@ -439,6 +412,8 @@ public class Player : NetworkBehaviour {
         
     }
     #endregion
+
+
 
     //==============BANK
     public void BankBuy()
@@ -554,5 +529,23 @@ public class Player : NetworkBehaviour {
         Debug.Log("Got trade request denied by " + senderID);
         Trading.singleton.RecieveDenial(senderID);
     }
+
+
+
+    //DevCards
+    [Command]
+    public void Cmd_PlayKnight()
+    {
+        Rpc_PlayKnight();
+    }
+
+    [ClientRpc]
+    public void Rpc_PlayKnight()
+    {
+        if (turn)
+            DevCards.PlayKnight(this);
+    }
+
+
 
 }

@@ -7,7 +7,7 @@ public class MatchUI : MonoBehaviour {
 
     public static MatchUI singleton;
 
-    public Player localPlayer;
+    public static Player localPlayer;
 
     public Transform otherPlayersCanvas;
     public GameObject otherPlayerPanelPref;
@@ -19,14 +19,6 @@ public class MatchUI : MonoBehaviour {
 
     public Canvas[] canvases = new Canvas[0];
     int currentCanvasI = 0;
-
-    //bank and log
-    public Dropdown sellRes;
-    public Text sellAmount;
-
-
-
-
     
 
     //buttonEvents
@@ -38,7 +30,6 @@ public class MatchUI : MonoBehaviour {
     // Use this for initialization
     void Start () {
         singleton = this;
-
     }
 
     public void SwitchCanvas(int i)
@@ -47,11 +38,6 @@ public class MatchUI : MonoBehaviour {
         canvases[i].gameObject.SetActive(true);
         currentCanvasI = i;
     }
-	
-
-
-
-
 
     //buttons
     public void EndTurn()
@@ -77,7 +63,6 @@ public class MatchUI : MonoBehaviour {
 
     }
 
-
     public void CreatePlayerPanels()
     {
         foreach (Player p in MatchManager.singleton.players)
@@ -96,27 +81,5 @@ public class MatchUI : MonoBehaviour {
             }
         }
     }
-
-
-
-    //BANK AND LOG STUFF
-    public void BuyResourceFromBank()
-    {
-        buyButtonUI();
-    }
-
-    public void HideSellStuff(bool b)
-    {
-        sellAmount.gameObject.SetActive(!b);
-        sellRes.gameObject.SetActive(!b);
-    }
-
-    public void SellCountUpdate(int i)
-    {
-        sellAmount.text = "за " + i.ToString();
-    }
-
-
-
 
 }
