@@ -18,23 +18,7 @@ public class Bank : NetworkBehaviour {
         singleton = this;
 	}
 
-    public void SetBuy(int i)
-    {
-        buy = i;
-
-        bool b = (buy < 5) ? false:true;
-        MatchUI.singleton.HideSellStuff(b);
-        //MatchUI.singleton.SellCountUpdate(CountAmount(sell, localPlayer));
-
-    }
-
-    public void SetSell(int i)
-    {
-        sell = i;
-
-        MatchUI.singleton.SellCountUpdate(CountAmount(sell, localPlayer));
-    }
-
+    
     [ClientRpc]
     public void Rpc_BankBuyResource(int buy, int sell, int pId)
     {
@@ -48,7 +32,7 @@ public class Bank : NetworkBehaviour {
             return;
         }
 
-        int amount = CountAmount(sell, player);
+        int amount = CountAmount(sell);
         
         //проверка на нехватку ресурсов
         if (player.wealth[sell] >= amount)
@@ -131,18 +115,25 @@ public class Bank : NetworkBehaviour {
         player.wealthChange();
     }
 
-    int CountAmount(int sellRes, Player player)
+
+    /// <summary>
+    /// Counts how much resource would you have to sell to buy another resource
+    /// </summary>
+    /// <param name="sellRes">Which resource you want to sell</param>
+    /// <returns></returns>
+    public static int CountAmount(int sellRes)
     {
-        //если нет портов
+
         int amount;
 
 
-        if (player.ports[sellRes])//если есть спец порт
+        if (MatchUI.localPlayer.ports[sellRes])//если есть спец порт
             amount = 2;
-        else if (player.ports[5])//если общий порт
+        else if (MatchUI.localPlayer.ports[5])//если общий порт
             amount = 3;
-        else amount = 4;
+        else amount = 4; //если нет портов
 
         return amount;
     }
+
 }

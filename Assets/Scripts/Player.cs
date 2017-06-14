@@ -13,12 +13,14 @@ public class Player : NetworkBehaviour {
 
     public bool turn;
 
+    public enum PlayerPhase { Inactive, RollDices, MoveRobber, TurnPhase}
+    public PlayerPhase playerPhase;
+    
+
     public delegate void PlayerEvent();
     public PlayerEvent endTurn;
     public PlayerEvent wealthChange;
 
-
-    //public delegate void BankEvent(int buy, int sell);
 
     public int winPoints = 0;
 
@@ -52,7 +54,8 @@ public class Player : NetworkBehaviour {
 
     public void RollDice()
     {
-        Cmd_RollDice();
+        if (playerPhase == PlayerPhase.RollDices)
+            Cmd_RollDice();
     }
 
     [Command]
@@ -70,7 +73,11 @@ public class Player : NetworkBehaviour {
     {
         Random.InitState(seed);
 
-        Dices.singleton.Roll();
+        if (Dices.singleton.Roll() == 7)
+            playerPhase = PlayerPhase.MoveRobber;
+        else
+            playerPhase = PlayerPhase.TurnPhase;   
+
         rolledDice = true;
 
     }
@@ -81,7 +88,8 @@ public class Player : NetworkBehaviour {
 
     public void EndTurn()
     {
-        Cmd_EndTurn();
+        if (playerPhase == PlayerPhase.TurnPhase)
+            Cmd_EndTurn();
     }
 
     [Command]
@@ -123,7 +131,8 @@ public class Player : NetworkBehaviour {
     [ClientRpc]
     public void Rpc_MoveRobbersTo(int hexId)
     {
-        Robber.MoveTo(mapManager.hexes[hexId]);
+        if (playerPhase == PlayerPhase.MoveRobber)
+            Robber.MoveTo(mapManager.hexes[hexId]);
     } 
 
 
@@ -262,33 +271,6 @@ public class Player : NetworkBehaviour {
     }
 
 
-    //Buy
-    [Command]
-    public void Cmd_BuyTown()
-    {
-        if (!rolledDice)
-        {
-            Debug.Log("Have to roll dices!");
-            return;
-        }
-
-        if (wealth[0] > 0 && wealth[1] > 0 && wealth[2] > 0 && wealth[3] > 0)
-        {
-            Rpc_BuyTown();
-        }
-    }
-
-    [ClientRpc]
-    public void Rpc_BuyTown()
-    {
-        
-        wealthChange();
-    }
-
-
-
-
-
     //START PHASE-======================-=-=--=-=-=-=-=-
     [Command]
     public void Cmd_BuildTownWithoutAllow(int townId)
@@ -388,7 +370,7 @@ public class Player : NetworkBehaviour {
         {
             
             Bank.singleton.localPlayer = this;
-            MatchUI.singleton.localPlayer = this;
+            MatchUI.localPlayer = this;
             Log.localPlayer = this;
             Trading.localPlayer = this;
 
@@ -430,6 +412,8 @@ public class Player : NetworkBehaviour {
         
     }
     #endregion
+
+
 
     //==============BANK
     public void BankBuy()
@@ -515,7 +499,7 @@ public class Player : NetworkBehaviour {
     }
 
 
-
+    //отклонение предложения
     public void DenyTradeRequest(int senderID)
     {
         Cmd_DenyTradeRequest(senderID, colorInt);
@@ -545,5 +529,155 @@ public class Player : NetworkBehaviour {
         Debug.Log("Got trade request denied by " + senderID);
         Trading.singleton.RecieveDenial(senderID);
     }
+
+    //принятие предложения
+    public void AcceptTradeRequest(int partnerId)
+    {
+        Cmd_AcceptTradeRequest(partnerId, colorInt);
+    }
+
+    [Command]
+    public void Cmd_AcceptTradeRequest(int senderID, int recieverID)
+    {
+        Rpc_AcceptTradeRequest(senderID, recieverID);
+    }
+
+    [ClientRpc]
+    public void Rpc_AcceptTradeRequest(int senderID, int recieverID)
+    {
+        foreach (Player p in MatchManager.singleton.players)
+        {
+            if (p.colorInt == senderID)
+                p.RecieveTradeRequestAcceptance(senderID);
+        }
+    }
+
+    public void RecieveTradeRequestAcceptance(int senderID)
+    {
+        if (!isLocalPlayer)
+            return;
+        Debug.Log("Got trade request accepted by " + senderID);
+        //Trading.singleton.RecieveAcceptance(senderID);
+        Trading.singleton.RecieveAcceptance();
+    }
+
+
+    //offers
+
+    public void UpdateOffer(int id, int res, int amount)
+    {
+        Cmd_UpdateOffer(id, res, amount);
+    }
+
+    [Command]
+    public void Cmd_UpdateOffer(int id, int res, int amount)
+    {
+        Rpc_UpdateOffer(id, res, amount);
+    }
+
+    [ClientRpc]
+    public void Rpc_UpdateOffer(int id, int res, int amount)
+    {
+        foreach (Player p in MatchManager.singleton.players)
+        {
+            if (p.colorInt == id)
+                p.RecieveUpdatedOffer(res, amount);
+        }
+        
+    }
+
+    public void RecieveUpdatedOffer(int res, int amount)
+    {
+        if (isLocalPlayer)
+            Trading.singleton.UpdatePartnersResourceOffer(res, amount);
+    }
+
+    //ready
+
+    public void UpdateReady(int id, bool ready)
+    {
+        Cmd_UpdateReady(id, ready);
+    }
+
+    [Command]
+    public void Cmd_UpdateReady(int id, bool ready)
+    {
+        Rpc_UpdateReady(id, ready);
+    }
+
+    [ClientRpc]
+    public void Rpc_UpdateReady(int id, bool ready)
+    {
+        foreach (Player p in MatchManager.singleton.players)
+        {
+            if (p.colorInt == id)
+                p.RecieveUpdateReady(ready);
+        }
+
+    }
+
+    public void RecieveUpdateReady(bool ready)
+    {
+        if (isLocalPlayer)
+            Trading.singleton.PartnersReady(ready);
+    }
+
+
+    public void Exchange(int tpID, int[] tpOffer, int[] yourOffer)
+    {
+        Cmd_Exchange( tpID,  tpOffer,  yourOffer);
+    }
+
+    [Command]
+    public void Cmd_Exchange(int tpID, int[] tpOffer, int[] yourOffer)
+    {
+        Rpc_Exchange( tpID,  tpOffer,  yourOffer);
+    }
+
+    [ClientRpc]
+    public void Rpc_Exchange(int tpID, int[] tpOffer, int[] yourOffer)
+    {
+        Player partner = new Player();
+        foreach (Player p in MatchManager.singleton.players)
+            if (p.colorInt == tpID)
+                partner = p;
+
+        for (int i = 0; i < 5; i++)
+        {
+            wealth[i] -= yourOffer[i];
+            partner.wealth[i] -= tpOffer[i];
+
+            wealth[i] += tpOffer[i];
+            partner.wealth[i] += yourOffer[i];
+
+        }
+
+        wealthChange();
+        partner.wealthChange();
+
+        if (partner.isLocalPlayer)
+        {
+            Trading.singleton.FinishExchange();
+        }
+    }
+
+
+
+
+    //DevCards
+    [Command]
+    public void Cmd_PlayKnight()
+    {
+        Rpc_PlayKnight();
+    }
+
+    [ClientRpc]
+    public void Rpc_PlayKnight()
+    {
+        if (turn)
+            DevCards.PlayKnight(this);
+    }
+
+
 
 }

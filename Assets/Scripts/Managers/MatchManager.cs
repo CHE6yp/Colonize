@@ -52,10 +52,12 @@ public class MatchManager : NetworkBehaviour {
     {
         //Debug.Log("SWTRN!");
         players[activePlayerId].turn = false;
+        players[activePlayerId].playerPhase = Player.PlayerPhase.Inactive;
         activePlayerId = (activePlayerId + 1 == players.Count) ? 0 : activePlayerId + 1;
 
         players[activePlayerId].turn = true;
         players[activePlayerId].rolledDice = false;
+        players[activePlayerId].playerPhase = Player.PlayerPhase.RollDices;
 
         if (newTurn != null)
             //newTurn(players[activePlayerId]);
@@ -90,6 +92,7 @@ public class MatchManager : NetworkBehaviour {
                 PlayersEndTurnEvent(Rpc_SwitchTurn);
                 Debug.Log("VSE");
                 endStartPhase = true;
+                players[activePlayerId].playerPhase = Player.PlayerPhase.RollDices;
             }
             else
                 activePlayerId--;
