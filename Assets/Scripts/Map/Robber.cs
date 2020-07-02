@@ -16,6 +16,8 @@ public class Robber : MonoBehaviour {
 	}
 	
 
+    
+
     public static bool MoveTo(Hex otherHex)
     {
 
