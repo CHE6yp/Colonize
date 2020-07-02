@@ -32,7 +32,7 @@ public class Robber : MonoBehaviour {
         currentHex = otherHex;
         currentHex.hasRobbers = true;
 
-        singleton.transform.position = currentHex.numRend.transform.position;
+        singleton.transform.position = currentHex.transform.position;
 
         hasToMove = false;
 
@@ -49,7 +49,7 @@ public class Robber : MonoBehaviour {
         currentHex = desertHex;
         currentHex.hasRobbers = true;
 
-        singleton.transform.position = currentHex.numRend.transform.position;
+        singleton.transform.position = currentHex.transform.position + new Vector3(0,0,-.2f);
 
     }
 }
