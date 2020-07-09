@@ -67,7 +67,12 @@ public class MapManager : NetworkBehaviour {
                 numList.RemoveAt(tempN);
             }
             else
+            {
+                hex.SetDesert();
                 Robber.SetAt(hex);
+
+            }
+                
         }
 
         foreach (Port p in ports)
@@ -80,7 +85,7 @@ public class MapManager : NetworkBehaviour {
         }
     }
 
-
+    //можно переписать на евенты, но пока похуй впринципе
     public void ScoreHexes(int num)
     {
         foreach (Hex h in hexes)

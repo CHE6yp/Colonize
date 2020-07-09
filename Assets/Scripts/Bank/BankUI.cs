@@ -16,8 +16,6 @@ public class BankUI : MonoBehaviour {
         singleton = this;
 	}
 
-
-
     public void SetBuy(int i)
     {
         Bank.singleton.buy = i;
@@ -32,9 +30,6 @@ public class BankUI : MonoBehaviour {
 
         SellCountUpdate(Bank.CountAmount(i));
     }
-
-
-
 
     public void BuyResourceFromBank()
     {

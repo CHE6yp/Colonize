@@ -122,6 +122,22 @@ public class Player : NetworkBehaviour {
 
     //Robbers
 
+    public void RobbingCheck(bool heRolledDice)
+    {
+        //if wealthE >7 then drop shit
+        if (wealth[0]+ wealth[1]+ wealth[2]+ wealth[3]+ wealth[4] > 7)
+        {
+            //dropshit
+        }
+        else
+        {
+            //if ()
+        }
+    }
+    
+
+
+
     [Command]
     public void Cmd_MoveRobbersTo(int hexId)
     {

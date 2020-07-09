@@ -10,6 +10,7 @@ public class LogUI : MonoBehaviour {
     public InputField chatInput;
     public CanvasRenderer filterPanel;
     public List<Toggle> filterToggle = new List<Toggle>();
+    public GameObject visible;
     //public Button chatButton;
 
     // Use this for initialization
@@ -34,5 +35,10 @@ public class LogUI : MonoBehaviour {
     public void SwitchFilterPanel()
     {
         filterPanel.gameObject.SetActive(!filterPanel.gameObject.activeSelf);
+    }
+
+    public void ToggleLog()
+    {
+        visible.SetActive(!visible.activeSelf);
     }
 }

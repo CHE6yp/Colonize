@@ -10,19 +10,19 @@ public class Hex : MonoBehaviour {
     public int id = 0;
 
     public SpriteRenderer hexRend;
-    [SerializeField]
-    SpriteRenderer resRend;
-    public Sprite[] resSprite = new Sprite[0];
+    public MeshFilter hexTopMeshFilter;
+    public MeshRenderer hexTopMeshRenderer;
+
+    public Mesh[] hexTopMeshes;
+    public Material[] hexTopMeshMaterials;
+    public GameObject trees;
+
     public int resNumber = 0;
     public bool desert;
     public bool hasRobbers;
 
-    
-
     public int number = 0;
-    [SerializeField]
-    public SpriteRenderer numRend;
-    public Sprite[] numSprite = new Sprite[0];
+    public TextMesh numberMesh;
 
     public List<Town> towns = new List<Town>();
 
@@ -62,13 +62,24 @@ public class Hex : MonoBehaviour {
     public void SetupHex(int resNumT, int numT)
     {
         resNumber = resNumT;
-        resRend.sprite = resSprite[resNumber];
 
         number = numT;
-        if (number < 7)
-            numRend.sprite = numSprite[number - 2];
-        else
-            numRend.sprite = numSprite[number - 3];
+        if (number != 7)
+            numberMesh.text = number.ToString();
+
+        if (number == 6 || number == 8)
+            numberMesh.color = Color.red;
+
+        hexTopMeshFilter.mesh = hexTopMeshes[resNumber];
+        hexTopMeshRenderer.material = hexTopMeshMaterials[resNumber];
+        if (resNumber == 0) trees.SetActive(true);
+
+    }
+
+    public void SetDesert()
+    {
+        hexTopMeshFilter.mesh = hexTopMeshes[5];
+        hexTopMeshRenderer.material = hexTopMeshMaterials[5];
     }
 }
 

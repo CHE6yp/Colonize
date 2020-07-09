@@ -15,11 +15,8 @@ public class Robber : MonoBehaviour {
         singleton = this;
 	}
 	
-
     public static bool MoveTo(Hex otherHex)
     {
-
-        
         //нельзя двигать на ту же этсамую
         if (currentHex == otherHex)
             return false;
@@ -27,10 +24,7 @@ public class Robber : MonoBehaviour {
         Debug.Log("GopStop!");
 
         currentHex.hasRobbers = false;
-        currentHex = otherHex;
-        currentHex.hasRobbers = true;
-
-        singleton.transform.position = currentHex.numRend.transform.position;
+        SetAt(otherHex);
 
         hasToMove = false;
 
@@ -42,12 +36,11 @@ public class Robber : MonoBehaviour {
         return true;
     }
 
-    public static void SetAt(Hex desertHex)
+    public static void SetAt(Hex hex)
     {
-        currentHex = desertHex;
+        currentHex = hex;
         currentHex.hasRobbers = true;
 
-        singleton.transform.position = currentHex.numRend.transform.position;
-
+        singleton.transform.position = currentHex.transform.position + new Vector3(0,0,-.2f);
     }
 }
