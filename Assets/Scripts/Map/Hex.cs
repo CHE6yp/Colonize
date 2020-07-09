@@ -15,6 +15,7 @@ public class Hex : MonoBehaviour {
 
     public Mesh[] hexTopMeshes;
     public Material[] hexTopMeshMaterials;
+    public GameObject trees;
 
     public int resNumber = 0;
     public bool desert;
@@ -71,6 +72,7 @@ public class Hex : MonoBehaviour {
 
         hexTopMeshFilter.mesh = hexTopMeshes[resNumber];
         hexTopMeshRenderer.material = hexTopMeshMaterials[resNumber];
+        if (resNumber == 0) trees.SetActive(true);
 
     }
 

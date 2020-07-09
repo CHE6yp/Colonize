@@ -11,6 +11,8 @@ public class CamHolder : MonoBehaviour
     private float yaw = 0.0f;
     private float pitch = 0.0f;
 
+    private float mwheel;
+
     void Update()
     {
         if (Input.GetKey(KeyCode.Mouse1))
@@ -23,5 +25,8 @@ public class CamHolder : MonoBehaviour
             if (pitch > 0) pitch = 0;
             leg.localEulerAngles = new Vector3(pitch, 0, 0);
         }
+
+        mwheel = Input.GetAxis("Mouse ScrollWheel");
+        Camera.main.transform.localPosition += new Vector3(0, 0, mwheel);
     }
 }

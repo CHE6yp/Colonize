@@ -85,7 +85,7 @@ public class MapManager : NetworkBehaviour {
         }
     }
 
-
+    //можно переписать на евенты, но пока похуй впринципе
     public void ScoreHexes(int num)
     {
         foreach (Hex h in hexes)

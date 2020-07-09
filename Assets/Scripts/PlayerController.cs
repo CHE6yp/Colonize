@@ -38,8 +38,6 @@ public class PlayerController : MonoBehaviour {
             switchTurnCheck = true;
         }
 
-
-
         if (Input.GetMouseButtonDown(0))
             click();
 
@@ -47,8 +45,12 @@ public class PlayerController : MonoBehaviour {
 
     public void Click()
     {
-        RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), -Vector2.up);
-        //Ray2D ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        //Это для ортографической камеры походу только
+        //RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), -Vector2.up);
+
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        RaycastHit2D hit = Physics2D.GetRayIntersection(ray);
 
         if (hit.collider !=null)
         {
@@ -62,15 +64,19 @@ public class PlayerController : MonoBehaviour {
 
             if (objectHit.GetComponent<Hex>() != null)
                 player.Cmd_MoveRobbersTo(objectHit.GetComponent<Hex>().id);
-
         }
     }
 
+    //Это клик в начальной стадии, когда еще игроки только расставляют города и дороги
     public void Click2()
     {
         
-        RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), -Vector2.up);
+        //RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), -Vector2.up);
         //Ray2D ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        RaycastHit2D hit = Physics2D.GetRayIntersection(ray);
 
         if (hit.collider != null)
         {
@@ -84,7 +90,6 @@ public class PlayerController : MonoBehaviour {
             if (placedTown && objectHit.GetComponent<Road>() != null)
             {
                 player.Cmd_BuildRoadBool(objectHit.GetComponent<Road>().id);
-                
             }
         }
     }
