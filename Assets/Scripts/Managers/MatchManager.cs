@@ -47,7 +47,7 @@ public class MatchManager : NetworkBehaviour {
         newTurn();
     }
 
-    [ClientRpc]
+    
     public void Rpc_SwitchTurn()
     {
         //Debug.Log("SWTRN!");
@@ -67,7 +67,7 @@ public class MatchManager : NetworkBehaviour {
         Trading.singleton.UpdateTradeOptions();
     }
 
-    [ClientRpc]
+    
     public void Rpc_SwitchTurnStartPhase()
     {
         //Debug.Log(activePlayerId);
