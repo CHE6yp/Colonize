@@ -14,14 +14,9 @@ public class Dices : MonoBehaviour {
     public SpriteRenderer dice2rend;
 
     public Sprite[] diceSprites;
-    // Use this for initialization
+
     void Start () {
         singleton = this;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
 	}
 
     public int Roll()
